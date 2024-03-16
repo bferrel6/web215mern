@@ -38,7 +38,7 @@ app.get('/', (request, response) => {
 
 app.use('/records', recordsRoute);
 
-const prodPort = process.env.APP_URL + `:${PORT}`;
+const prodPort = `https://web215mern.vercel.app/:${PORT}`;
 const devPort = PORT;
 const allowedPort = process.env.NODE_ENV === 'production' ? prodPort : devPort
 
