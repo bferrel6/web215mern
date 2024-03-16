@@ -38,16 +38,12 @@ app.get('/', (request, response) => {
 
 app.use('/records', recordsRoute);
 
-const prodPort = `https://web215mern.vercel.app/:${PORT}`;
-const devPort = PORT;
-const allowedPort = process.env.NODE_ENV === 'production' ? prodPort : devPort
-
 mongoose
     .connect(mongoDBURL)
     .then(() => {
         console.log('App connected to database');
-        app.listen(allowedPort, () => {
-            console.log(`App is listening to port: ${allowedPort}`);
+        app.listen(PORT, () => {
+            console.log(`App is listening to port: ${PORT}`);
         })
     })
     .catch((error) => {
