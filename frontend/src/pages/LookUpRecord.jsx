@@ -26,7 +26,7 @@ const LookUpRecord = () => {
   return (
     <div className='p-4'>
       <BackButton />
-      <h1 className='text-3xl my-4'>Record Details</h1>
+      <h2 className='text-3xl my-4'>Record Details</h2>
       {loading ? (
         <Spinner />
       ) : (

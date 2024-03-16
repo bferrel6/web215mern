@@ -31,7 +31,7 @@ const DeleteRecord = () => {
   return (
     <div className='p-4'>
       <BackButton />
-      <h1 className='text-3xl my-4'>Delete Record</h1>
+      <h2 className='text-3xl my-4'>Delete Record</h2>
       {loading ? <Spinner /> : ''}
       <div className='flex flex-col items-center border-2 border-sky-400 rounded-xl w-[600px] p-8 mx-auto'>
         <h3 className='text-2xl'>Are you <em>sure</em> you want to delete this record?</h3>

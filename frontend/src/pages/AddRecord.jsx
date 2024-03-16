@@ -37,7 +37,7 @@ const AddRecord = () => {
   return (
     <div className='p-4'>
       <BackButton />
-      <h1 className='text-3xl'>Add New Record</h1>
+      <h2 className='text-3xl'>Add New Record</h2>
       {loading ? <Spinner /> : ''}
       <div className='flex flex-col border-2 border-green-100 rounded-xl w-[600px] p-4 mx-auto'>
         <div className='my-4'>

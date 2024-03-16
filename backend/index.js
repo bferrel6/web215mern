@@ -11,15 +11,25 @@ const app = express();
 app.use(express.json());
 
 // Middleware for handling CORS POLICY
-app.use(cors());
+//app.use(cors());
 // Option 2: Custom Origin
-// app.use(
-//     cors({
-//         origin: 'http://localhost:3000',
-//         methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//         allowedHeaders: ['Content-Type'],
-//     })
-// )
+const prodOrigin = process.env.APP_URL;
+const devOrigin = ['http://localhost:5173']
+const allowedOrigins = process.env.NODE_ENV === 'production' ? prodOrigin : devOrigin
+app.use(
+    cors({
+        origin: (origin, callback) => {
+            if (allowedOrigins.includes(origin)){
+                // console.log(origin, allowedOrigins)
+                callback(null, true);
+            } else {
+                callback(new Error('Not allowed by CORS'));
+            }
+        },
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        allowedHeaders: ['Content-Type'],
+    })
+)
 
 app.get('/', (request, response) => {
     console.log(request)
