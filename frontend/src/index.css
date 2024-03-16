@@ -22,6 +22,12 @@ body{
 	margin-right: auto;
 }
 
+h2 {
+	font-family: 'Britannic Bold', serif;
+	color: var(--columbia-blue);
+	text-align: center;
+}
+
 svg {
     background: var(--azure-web);
     border-radius: 50%;

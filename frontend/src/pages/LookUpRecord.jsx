@@ -30,7 +30,7 @@ const LookUpRecord = () => {
       {loading ? (
         <Spinner />
       ) : (
-        <div className="flex flex-col border-2 border-green-200 rounded-xl w-fit p-4">
+        <div className="flex flex-col border-2 border-green-200 rounded-xl w-fit p-4 mx-auto">
           <div className="my-4">
             <span className='text-xl mr-4 text-slate-300'>Id</span>
             <span>{record._id}</span>

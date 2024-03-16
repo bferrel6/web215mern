@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Spinner from "../components/Spinner";
 import { Link } from "react-router-dom";
-// import { AiOutlineEdit } from "react-icons/ai";
-// import { BsInfoCircle } from "react-icons/bs";
 import { MdOutlineAddBox/*, MdOutlineDelete*/ } from "react-icons/md";
 import RecordsTable from "../components/home/RecordsTable";
 import RecordCards from "../components/home/RecordCards";
@@ -34,18 +32,19 @@ const Home = () => {
           className="px-4 py-1 rounded-lg"
           onClick={() => setDisplayType('table')}
         >
-          Table
+          Table View
         </button>
         <button
           className="px-4 py-1 rounded-lg"
           onClick={() => setDisplayType('cards')}
         >
-          Cards
+          Card View
         </button>
       </div>
       <div className="flex justify-between items-center">
-        <h1 className="text-3xl my-8">Brawny Record Collection</h1>
-        <Link to="/records/add">
+        <h2 className="text-3xl my-8">Brawny Record Collection</h2>
+        <Link className="flex justify-between" to="/records/add">
+          <h3 className="mx-4">Add</h3>
           <MdOutlineAddBox className="text-sky-800 text-4xl" />
         </Link>
       </div>
