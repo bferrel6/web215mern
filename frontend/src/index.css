@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--columbia-blue: #c9f0ffff;
+	--azure-web: #eafffdff;
+	--antiflash-white: #efeff0ff;
+	--thistle: #E8E3E8ff; /* original d5cad6 */
+	--wenge: #4E4648ff; /* original #6b5e56 */
+}
+
+body{
+	font-family: 'Gill Sans MT Condensed', sans-serif;
+	font-weight: 200;
+	font-size: 175%;
+	color: var(--antiflash-white);	
+	background: var(--wenge);
+	min-width: 800px;
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+svg {
+    background: var(--azure-web);
+    border-radius: 50%;
+    padding: 2px;
+    min-width: 25px;
+}
+
+button{
+    background: var(--columbia-blue);
+    color: var(--wenge);
+}
+
+svg:hover,
+button:hover  {
+    opacity: 75%;
+}
+
+input{
+    background: var(--antiflash-white);
+    color: var(--wenge);
+}
