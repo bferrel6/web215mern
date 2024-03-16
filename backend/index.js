@@ -38,12 +38,16 @@ app.get('/', (request, response) => {
 
 app.use('/records', recordsRoute);
 
+const prodPort = process.env.APP_URL + `:${PORT}`;
+const devPort = PORT;
+const allowedPort = process.env.NODE_ENV === 'production' ? prodPort : devPort
+
 mongoose
     .connect(mongoDBURL)
     .then(() => {
         console.log('App connected to database');
-        app.listen(PORT, () => {
-            console.log(`App is listening to port: ${PORT}`);
+        app.listen(allowedPort, () => {
+            console.log(`App is listening to port: ${allowedPort}`);
         })
     })
     .catch((error) => {
