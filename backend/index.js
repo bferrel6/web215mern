@@ -38,8 +38,17 @@ app.get('/', (request, response) => {
 
 app.use('/records', recordsRoute);
 
+const atlasAddresses = [
+    '3.129.111.220',
+    '3.134.238.10',
+    '52.15.118.168'
+]
+const randomIP = atlasAddresses[Math.floor(Math.random() * atlasAddresses.length)];
+const databaseAddress = process.env.NODE_ENV === 'production' 
+    ? randomIP : mongoDBURL;
+
 mongoose
-    .connect(mongoDBURL)
+    .connect(databaseAddress)
     .then(() => {
         console.log('App connected to database');
         app.listen(PORT, () => {
