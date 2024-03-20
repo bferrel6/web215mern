@@ -39,8 +39,6 @@ app.get('/', (request, response) => {
 
 app.use('/records', recordsRoute);
 
-//const databaseAddress = process.env.NODE_ENV === 'production' ? remoteMongoDBURL : localMongoDBURL;
-
 mongoose
     .connect(mongoDBURL)
     .then(() => {
