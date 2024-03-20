@@ -1,5 +1,5 @@
 import express from "express";
-import { PORT, mongoDBURL } from "./config.js";
+import { PORT, localMongoDBURL, remoteMongoDBURL } from "./config.js";
 import mongoose from 'mongoose';
 import { Record } from "./models/recordModel.js";
 import recordsRoute from './routes/recordsRoute.js';
@@ -13,7 +13,7 @@ app.use(express.json());
 // Middleware for handling CORS POLICY
 //app.use(cors());
 // Option 2: Custom Origin
-const prodOrigin = process.env.APP_URL;
+const prodOrigin = [process.env.APP_URL];
 const devOrigin = ['http://localhost:5173']
 const allowedOrigins = process.env.NODE_ENV === 'production' ? prodOrigin : devOrigin
 app.use(
@@ -38,14 +38,8 @@ app.get('/', (request, response) => {
 
 app.use('/records', recordsRoute);
 
-const atlasAddresses = [
-    '3.129.111.220',
-    '3.134.238.10',
-    '52.15.118.168'
-]
-const randomIP = atlasAddresses[Math.floor(Math.random() * atlasAddresses.length)];
 const databaseAddress = process.env.NODE_ENV === 'production' 
-    ? randomIP : mongoDBURL;
+    ? remoteMongoDBURL : localMongoDBURL;
 
 mongoose
     .connect(databaseAddress)
