@@ -11,4 +11,4 @@ const atlasAddresses = [
 const randomAtlasIP = atlasAddresses[Math.floor(Math.random() * atlasAddresses.length)];
 
 export const remoteMongoDBURL = 
-    `mongodb://bferrel6:TKIT3GhFmJgYdKbC@${randomAtlasIP}:27017?retryWrites=true&w=majority&appName=mern-music-store`
+    `mongodb://bferrel6:TKIT3GhFmJgYdKbC@${randomAtlasIP}/record-collection?retryWrites=true&w=majority&appName=mern-music-store`
