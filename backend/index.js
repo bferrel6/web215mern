@@ -1,5 +1,5 @@
 import express from "express";
-import { PORT, localMongoDBURL, remoteMongoDBURL } from "./config.js";
+import { PORT, mongoDBURL } from "./config.js";
 import mongoose from 'mongoose';
 import { Record } from "./models/recordModel.js";
 import recordsRoute from './routes/recordsRoute.js';
@@ -10,7 +10,7 @@ const app = express();
 // Middleware for parsing request body
 app.use(express.json());
 
-// Middleware for handling CORS POLICY
+// Middleware for handling CORS POLICY (see ../frontend/vercel.json)
 app.use(cors());
 // Option 2: Custom Origin
 /* const prodOrigin = [process.env.APP_URL];
@@ -39,11 +39,10 @@ app.get('/', (request, response) => {
 
 app.use('/records', recordsRoute);
 
-const databaseAddress = process.env.NODE_ENV === 'production' 
-    ? remoteMongoDBURL : localMongoDBURL;
+//const databaseAddress = process.env.NODE_ENV === 'production' ? remoteMongoDBURL : localMongoDBURL;
 
 mongoose
-    .connect(databaseAddress)
+    .connect(mongoDBURL)
     .then(() => {
         console.log('App connected to database');
         app.listen(PORT, () => {
