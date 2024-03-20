@@ -22,7 +22,7 @@ const AddRecord = () => {
     };
     setLoading(true);
     axios
-      .post(`http://${serverAddress}:5555/records`, data)
+      .post(`${serverAddress}:5555/records`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Record Added Successfully', { variant: 'success' });

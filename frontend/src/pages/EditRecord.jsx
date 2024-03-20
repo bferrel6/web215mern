@@ -18,7 +18,7 @@ const EditRecord = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`http://${serverAddress}:5555/records/${id}`)
+    axios.get(`${serverAddress}:5555/records/${id}`)
       .then((response) => {
         setArtist(response.data.artist);
         setReleaseYear(response.data.releaseYear);
@@ -39,7 +39,7 @@ const EditRecord = () => {
     };
     setLoading(true);
     axios
-      .put(`http://${serverAddress}:5555/records/${id}`, data)
+      .put(`${serverAddress}:5555/records/${id}`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Record Edited Successfully', { variant: 'success' });

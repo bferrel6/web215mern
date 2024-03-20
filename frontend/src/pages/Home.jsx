@@ -15,7 +15,7 @@ const Home = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://${serverAddress}:5555/records`)
+      .get(`${serverAddress}:5555/records`)
       .then((response) => {
         setRecords(response.data.data);
         setLoading(false);

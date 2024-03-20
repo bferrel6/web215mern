@@ -16,7 +16,7 @@ const DeleteRecord = () => {
   const handleDeleteRecord = () => {
     setLoading(true);
     axios
-      .delete(`http://${serverAddress}:5555/records/${id}`)
+      .delete(`${serverAddress}:5555/records/${id}`)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Record Deleted Successfully', { variant: 'success' });
