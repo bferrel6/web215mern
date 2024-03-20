@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { MdOutlineAddBox/*, MdOutlineDelete*/ } from "react-icons/md";
 import RecordsTable from "../components/home/RecordsTable";
 import RecordCards from "../components/home/RecordCards";
+import { serverAddress } from "../config";
 
 const Home = () => {
   const [records, setRecords] = useState([]);
@@ -14,7 +15,7 @@ const Home = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:5555/records")
+      .get(`http://${serverAddress}:5555/records`)
       .then((response) => {
         setRecords(response.data.data);
         setLoading(false);

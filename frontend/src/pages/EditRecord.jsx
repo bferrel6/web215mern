@@ -4,7 +4,7 @@ import Spinner from '../components/Spinner';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
-
+import { serverAddress } from "../config";
 
 const EditRecord = () => {
   const [title, setTitle] = useState('');
@@ -18,7 +18,7 @@ const EditRecord = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`http://localhost:5555/records/${id}`)
+    axios.get(`http://${serverAddress}:5555/records/${id}`)
       .then((response) => {
         setArtist(response.data.artist);
         setReleaseYear(response.data.releaseYear);
@@ -39,7 +39,7 @@ const EditRecord = () => {
     };
     setLoading(true);
     axios
-      .put(`http://localhost:5555/records/${id}`, data)
+      .put(`http://${serverAddress}:5555/records/${id}`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Record Edited Successfully', { variant: 'success' });

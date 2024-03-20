@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
+import { serverAddress } from "../config";
 
 const LookUpRecord = () => {
   const [record, setRecord] = useState({});
@@ -12,7 +13,7 @@ const LookUpRecord = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:5555/records/${id}`)
+      .get(`http://${serverAddress}:5555/records/${id}`)
       .then((response) => {
         setRecord(response.data);
         setLoading(false);

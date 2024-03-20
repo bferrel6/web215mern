@@ -4,6 +4,7 @@ import Spinner from '../components/Spinner';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
+import { serverAddress } from "../config";
 
 const DeleteRecord = () => {
   const [loading, setLoading] = useState(false);
@@ -15,7 +16,7 @@ const DeleteRecord = () => {
   const handleDeleteRecord = () => {
     setLoading(true);
     axios
-      .delete(`http://localhost:5555/records/${id}`)
+      .delete(`http://${serverAddress}:5555/records/${id}`)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Record Deleted Successfully', { variant: 'success' });
