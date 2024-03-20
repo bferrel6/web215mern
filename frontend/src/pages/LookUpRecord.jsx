@@ -13,7 +13,7 @@ const LookUpRecord = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`${serverAddress}:5555/records/${id}`)
+      .get(`${serverAddress}/records/${id}`)
       .then((response) => {
         setRecord(response.data);
         setLoading(false);
