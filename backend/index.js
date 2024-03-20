@@ -11,9 +11,9 @@ const app = express();
 app.use(express.json());
 
 // Middleware for handling CORS POLICY
-//app.use(cors());
+app.use(cors());
 // Option 2: Custom Origin
-const prodOrigin = [process.env.APP_URL];
+/* const prodOrigin = [process.env.APP_URL];
 const devOrigin = ['http://localhost:5173']
 const allowedOrigins = process.env.NODE_ENV === 'production' ? prodOrigin : devOrigin
 app.use(
@@ -30,6 +30,7 @@ app.use(
         allowedHeaders: ['Content-Type'],
     })
 )
+ */
 
 app.get('/', (request, response) => {
     console.log(request)
